@@ -17,6 +17,7 @@
 
 			<input class="margXL" type = "submit" value = "Login" />
 		</form>
+		<a href="forgotpassword.php">¿Olvidaste su contraseña?</a>
 	</div>
 	<div id="certs" class="tab-pane fade">
 		<button type="button" onclick="location.href='/certlogin.php';" class="btn btn-default">Certificado</button>

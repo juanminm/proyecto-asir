@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {	// Se ha recibido un formulario.
 		<p>Si usted ha recibido este correo por error o no lo ha solicitado, puede ignorarlo.</p>
 
 		<p>Atentamente,<br/>
-		Equipo de MELoL</p>
+		ProyectoASIR.com</p>
 	</body>
 </html>
 _HTMLMAIL_;
@@ -55,7 +55,7 @@ Por favor, accesa al siguiente link para dirigirse a la página de restablecimie
 Si usted ha recibido este correo por error o no lo ha solicitado, puede ignorarlo.
 
 Atentamente,
-Equipo de MELoL
+ProyectoASIR.com
 _TEXTMAIL_;
 
 		require './inc/PHPMailer/PHPMailerAutoload.php';
