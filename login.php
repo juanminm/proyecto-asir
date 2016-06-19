@@ -20,7 +20,7 @@
 		<a href="forgotpassword.php">¿Olvidaste su contraseña?</a>
 	</div>
 	<div id="certs" class="tab-pane fade">
-		<button type="button" onclick="location.href='/certlogin.php';" class="btn btn-default">Certificado</button>
+		<button style="margin: 10px 0px 10px 20px" type="button" onclick="location.href='/certlogin.php';" class="btn btn-default">Certificado</button>
 	</div>
 	<div id="register" class="tab-pane fade">
 		<form action='./index.php?action=register' method='post'>
