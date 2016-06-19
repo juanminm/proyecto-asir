@@ -22,7 +22,7 @@ sys_session_start();
                     Proyecto ASIR de autenticación
                 </div>
             </div>
-            <nav class="melolbar">
+            <nav class="bar">
                 <div class="header-buttons"><a href="index.php">Inicio</a></div>
            </nav>
             <div id="content">
@@ -32,6 +32,8 @@ sys_session_start();
             ?>
             </div>
             <div id="footer">
+				<div class="pull-left">ProyectoASIR.com</div>
+                <div class="pull-right">© 2016 Juan Miguel Navarro Martínex</div>
             </div>
         </div>
     </div>
