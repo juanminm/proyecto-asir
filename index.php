@@ -9,7 +9,7 @@ sys_session_start();
     <head>
         <meta charset="UTF-8">
         <title>Proyecto ASIR autenticatión</title>
-	    <link media="all" href="css/style.css" rel="stylesheet" type="text/css"></link>
+	    <link media="all" href="css/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/jquery-2.1.4.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
