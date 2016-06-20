@@ -7,36 +7,37 @@ $repassword = filter_input(INPUT_POST, 'repassword', $filter = FILTER_SANITIZE_S
  * $_POST falso se ejecutar primero el PHP, si no hubiese datos y fuese
  * falso se ignoraria el PHP y mostraria el formulario.
  */
-    if($_POST){
-    /*	// include conexion a la BD -> de aqui obtenemos $conexion
-    	include 'connection.php';*/
-        if (!($password == $repassword)){
-            echo "<h4>Las contraseñas no coinciden</h4><br>";
-        } else {
-            // insert query
-        	$query = "INSERT INTO `users` (userNick, userMail, userPass, userSignedDate) "
-        		. "VALUES (?, ?, ?, ?)";
+if($_POST){
+/*	// include conexion a la BD -> de aqui obtenemos $conexion
+	include 'connection.php';*/
+	if (!($password == $repassword)){
+		echo "<h4>Las contraseñas no coinciden</h4><br>";
+	} else {
+		// insert query
+		$query = "INSERT INTO `users` (userNick, userMail, userPass, "
+				. "userSignedDate) VALUES (?, ?, ?, ?)";
 
-        	// prepare query for execution -> Aquí se comprueba la sintaxis
-        	//  de la consulta y se reservan los recursos necesarios
-        	//  para ejecutarla.
-        	if (! $stmt = $conexion->prepare($query)){
-        	    die('Imposible preparar el registro.'.$conexion->error);
-        	}
+		// prepare query for execution -> Aquí se comprueba la sintaxis
+		//  de la consulta y se reservan los recursos necesarios
+		//  para ejecutarla.
+		if (! $stmt = $conexion->prepare($query)){
+			die('Imposible preparar el registro.'.$conexion->error);
+		}
 
-        	// asociar los parámetros
-			$date = date("Y-m-d H:i:s");
-			$password = password_hash($password, PASSWORD_DEFAULT);
-        	$stmt->bind_param('ssss',$_POST['usuario'],$_POST['email'],$password,$date);
+		// asociar los parámetros
+		$date = date("Y-m-d H:i:s");
+		$password = password_hash($password, PASSWORD_DEFAULT);
+		$stmt->bind_param('ssss', $_POST['usuario'], $_POST['email'],
+				$password, $date);
 
-        	// ejecutar la query
-        	if($stmt->execute()){
-        	    echo "<div>El usuario ha sido creado.</div>";
-        	} else {
-        	    die('Imposible guardar el registro:'.$conexion->error);
-        	}
-        }
-    }
+		// ejecutar la query
+		if($stmt->execute()){
+			echo "<div>El usuario ha sido creado.</div>";
+		} else {
+			die('Imposible guardar el registro:'.$conexion->error);
+		}
+	}
+}
 ?>
 <form action='./index.php?action=register' method='post'>
 	<table border='0'>
