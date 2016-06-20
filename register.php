@@ -63,5 +63,3 @@ if($_POST){
 		</tr>
 	</table>
 </form>
-
-

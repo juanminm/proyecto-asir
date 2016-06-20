@@ -99,6 +99,3 @@ if (!login_check($conexion)) {
 }
 
 include( $action . '.php'); //y ahora mostramos la pagina llamada
-
-
-
