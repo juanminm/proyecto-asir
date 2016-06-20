@@ -36,11 +36,8 @@ function sys_session_create($conexion, $force = FALSE) {
 			$stmt->bind_param('si', $hashedSessionId, $userId);
 			$stmt->execute();
 			$stmt->close();
-
-			return $sessionId;
 		}
 	}
-	return "";
 }
 
 function sys_session_destroy() {
