@@ -19,6 +19,8 @@ $config['mailUser'] = "usuario@ejemplo.com";
 $config['mailPass'] = "ejemplo";
 $config['mailRealName'] = "Ejemplo";
 
+$default_action = 'home';
+
 # allow local overrides
 if (file_exists(dirname(__FILE__).'/config.local.php')) {
 	require_once(dirname(__FILE__).'/config.local.php');
