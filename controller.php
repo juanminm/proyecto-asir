@@ -19,7 +19,7 @@ if (!login_check($conexion)) {
 		'Remaining'=>filter_input(INPUT_SERVER, 'SSL_CLIENT_V_REMAIN', $filter = FILTER_VALIDATE_INT)
 	);
 
-	if (isset($usuario, $password) && $action != "altas") {
+	if (isset($usuario, $password) && $action != "register") {
 		if (sys_user_verify($usuario, $password, $conexion) == true) {
 			// Éxito
 			$action = $default_action; //acción por defecto
@@ -44,17 +44,21 @@ if (!login_check($conexion)) {
 
 			echo "<div class=\"logout\"> <a href=\"index.php?action=logout\"> "
 			. "Desconectar " . $_SESSION['userName']
-			. "</a> | <a href=\"index.php?action=requestcert\"> Generar certificado </a></div><br>";
+			. "</a> | <a href=\"index.php?action=requestcert\"> Generar "
+			. "certificado </a></div><br>";
 
 		} else {
 			// Login error: no coinciden el certificado
 			$action = "login";
-			echo "<div class=" . "\"alert alert-danger alert-dismissable text-center clear\" id=\"login_fail\"" . ">
-			<button type=" . "button" . " class=" . "close" . " data-dismiss=" . "alert" . ">&times;</button>
-				Login incorrecto! Revisa el certificado.
-			</div>";
+			echo "<div class=\"alert alert-danger alert-dismissable "
+			. "text-center clear\" id=\"login_fail\"> <button type=\"button\" "
+			. "class=\"close\" data-dismiss=\"alert\">&times;</button> "
+			. "Login incorrecto! Revisa el certificado. </div>";
 		}
-	} elseif (! ($action == "forgotpassword" || $action == "recuperarpass" || $action == "altas")) {
+	} elseif (! ($action == "forgotpassword" ||
+			$action == "recoverpass" ||
+			$action == "register")
+		) {
 		//significa que aún no has valores para usuario y password
 		$action = "login";
 	}
