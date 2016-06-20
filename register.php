@@ -39,30 +39,28 @@ $repassword = filter_input(INPUT_POST, 'repassword', $filter = FILTER_SANITIZE_S
     }
 ?>
 <form action='./index.php?action=register' method='post'>
-<table border='0'>
-    <tr>
-	<td>Usuario</td>
-	<td><input type='text' name='usuario' /></td>
-    </tr>
-    <tr>
-	<td>Correo electronico</td>
-	<td><input type='text' name='email' /></td>
-    </tr>
-    <tr>
-	<td>Contraseña</td>
-	<td><input type='password' name='password' /></td>
-    </tr>
-    <td>Repite contraseña</td>
-    <td><input type='password' name='repassword' /></td>
-    </tr>
-    <tr>
-	<td></td>
-	<td>
-	<input type="submit" name="save" value="Crear" />
-	<a href="./index.php?action=<?php echo $default_action ?>">Volver al inicio</a>
-	</td>
-    </tr>
-</table>
+	<table border='0'>
+		<tr>
+			<td>Usuario</td>
+			<td><input type='text' name='usuario' /></td>
+		</tr>
+		<tr>
+			<td>Correo electronico</td>
+			<td><input type='text' name='email' /></td>
+		</tr>
+		<tr>
+			<td>Contraseña</td>
+			<td><input type='password' name='password' /></td>
+		</tr>
+			<td>Repite contraseña</td>
+			<td><input type='password' name='repassword' /></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="direction: rtl">
+				<input type="submit" name="save" value="Crear" />
+			</td>
+		</tr>
+	</table>
 </form>
 
 
