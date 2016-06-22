@@ -1,14 +1,17 @@
 <h1>Alta usuario</h1>
 <?php
-$password = filter_input(INPUT_POST, 'password', $filter = FILTER_SANITIZE_STRING); // The hashed password.
-$repassword = filter_input(INPUT_POST, 'repassword', $filter = FILTER_SANITIZE_STRING); // The hashed password.
 
-/* Si se llama desde el form, contendra datos de 'input' y al no ser
- * $_POST falso se ejecutar primero el PHP, si no hubiese datos y fuese
- * falso se ignoraria el PHP y mostraria el formulario.
- */
 if($_POST){
-/*	// include conexion a la BD -> de aqui obtenemos $conexion
+	$usuario = filter_input(INPUT_POST, 'usuario',
+			$filter = FILTER_SANITIZER_STRING);
+	$email = filter_input(INPUT_POST, 'email',
+			$filter = FILTER_SANITIZER_STRING);
+	$password = filter_input(INPUT_POST, 'password',
+			$filter = FILTER_SANITIZE_STRING); // The hashed password.
+	$repassword = filter_input(INPUT_POST, 'repassword',
+			$filter = FILTER_SANITIZE_STRING); // The hashed password.
+
+	/*	// include conexion a la BD -> de aqui obtenemos $conexion
 	include 'connection.php';*/
 	if (!($password == $repassword)){
 		echo "<h4>Las contraseñas no coinciden</h4><br>";
@@ -27,7 +30,7 @@ if($_POST){
 		// asociar los parámetros
 		$date = date("Y-m-d H:i:s");
 		$password = password_hash($password, PASSWORD_DEFAULT);
-		$stmt->bind_param('ssss', $_POST['usuario'], $_POST['email'],
+		$stmt->bind_param('ssss', $usuario, $email,
 				$password, $date);
 
 		// ejecutar la query

@@ -77,8 +77,8 @@ _TEXTMAIL_;
 		echo "El mensaje no ha sido enviado <br/>";
 		echo "Mailer Error: " . $mailer->ErrorInfo;
 	} else {	// El mensaje se ha enviado
-		$sql = "INSERT INTO `uCertVerification` (`userId`, `uCVerifToken`, `uCVerifDate`, `uCVerifUsed`) "
-				. "VALUES (?, ?, ?, 0)";
+		$sql = "INSERT INTO `uCertVerification` (`userId`, `uCVerifToken`, "
+				. "`uCVerifDate`, `uCVerifUsed`) VALUES (?, ?, ?, 0)";
 		$stmt = $conexion->prepare($sql);
 		$stmt->bind_param('iss', $_SESSION['userId'], $token, $date);
 		$stmt->execute();
